@@ -76,11 +76,11 @@ function taskClearing(button) { //element in parenthesis
 
 function taskClearing2(button) {
     // let buttonId = document.getElementById('task' + button.id.id);
-    let currentId = button.id.match(/\d+/)[0]; //daje tylko numer
+    let currentId = button.id.match(/\d+/)[0]; 
     let divId = document.getElementById(`task${currentId}`);
     divId.remove();
     localStorage.removeItem(currentId);
-    tasksArray.splice(currentId - 1, 1, null); //[0,1,2,3] --> (0,1) --> [1,2,3]  pozycja elemenut ktory chcemy usunac, liczac od 0 usuwamy dana pozycje, ile, co wstawia
+    tasksArray.splice(currentId - 1, 1, null); 
     tasksArray.filter(Number);
     console.log(tasksArray);
     let checkArray = tasksArray.every(element => element === null);
@@ -90,23 +90,16 @@ function taskClearing2(button) {
         tasksArray = [];
     }
     console.log(tasksArray);
-    // console.log(positionArray);
-    //borrar id del array, cuando se borra tarea, que se borre el id del array
+    // console.log(positionArray);   
 }
 
-//enter zamiast button
-
 inputBar.addEventListener("keypress", function(pressEnter) {
-    // If the user presses the "Enter" key on the keyboard
     if (pressEnter.key === "Enter") {
-      // Cancel the default action, if needed
       pressEnter.preventDefault();
-      // Trigger the button element with a click
       document.getElementById('btnAdd').click();
     }
   });
   
-
 //ANIMACIONES
 
 // buttonAdd.addEventListener("click", saludar);
@@ -114,26 +107,5 @@ inputBar.addEventListener("keypress", function(pressEnter) {
 // buttonClear.addEventListener("click", escribirBorrar);
 buttonAdd.addEventListener("click", addTask);
 // butt.addEventListener("click", taskClearing);
-
-//EXPLICACION
-//acceder al boton de andair,  borrar, input-field y task-field creando las variables/constantes
-//crear la funcion para que input-field se vacie
-
-//crear la funcion de anadir tarea: 
-//1. crear variable, si la etiqueta -label es igual al valor del input
-//2. si el texto introducido es vacio --> crear variable emptyMessage y que salga el mensaje en rojo y se termine la funcion con return
-//3. en otro caso --> crear array y meter dentro valor de su length
-//crear variable de cada nuevo div - tarea --> 
-//a cada nuevo div, ponerle nuevo id, con tasksArray.length
-//acceder al html para crear el div/su forma
-//generar para que se cree nuevo div, como hijos del tasksTd
-//a cada boton ponerle id de length del array
-//input para que se quede vacio
-//llamar a la funcion
-
-//crear funcion para borrar cada tarea
-//acceder al numero de la tarea con parametro.id usando el onclick="taskClearing(this) en el boton 
-//borrar el padre del button = div con la tarea usando tasktoRemove.parentElement.remove()
-//llamar a la funcion
 
 
